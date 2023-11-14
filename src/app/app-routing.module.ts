@@ -5,9 +5,9 @@ import { Error404Component } from './shared/components/error404/error404.compone
 
 const routes: Routes = [
   {
-      path:'landing',
-      component : LandingPageComponent,
-      loadChildren: ()=>import("./modules/landing/landing.module").then(m => m.LandingModule)
+    path:'landing',
+    component : LandingPageComponent,
+    loadChildren: ()=>import("./modules/landing/landing.module").then(m => m.LandingModule)
   },
   {
     path:'auth',
