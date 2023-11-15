@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { LandingPageComponent } from './modules/landing/components/landing-page/landing-page.component';
 import { Error404Component } from './shared/components/error404/error404.component';
+import { authGuard } from './core/services/autServices/guards/auth.guard';
 
 const routes: Routes = [
   {
@@ -17,6 +18,11 @@ const routes: Routes = [
     path:'',
     redirectTo:'landing',
     pathMatch:'full'
+  },
+  {
+    path: 'main',
+    loadChildren: () => import("./modules/main/main.module").then(m => m.MainModule),
+    canActivate:[authGuard]
   },
   {
     path:'**',

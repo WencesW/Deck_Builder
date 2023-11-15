@@ -1,7 +1,7 @@
 <div class="login-container">
   <h2>Iniciar Sesión</h2>
 
-  <form autocomplete="off" (ngSubmit)="onSubmit()">
+  <form autocomplete="off" [formGroup]="loginForm" (ngSubmit)="onSubmit()">
     <div class="form-group">
 
       <label for="email">Correo electronico:</label>

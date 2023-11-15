@@ -22,9 +22,10 @@ body {
     color: #fff;
     font-weight: bold;
     font-size: 24px;
+    margin-right: 20px;
+    display: flex;
   }
 
-  
   .nav-links {
     list-style: none;
     display: flex;

@@ -1,0 +1,16 @@
+.pres h2 {
+    text-align:center;
+    font-size: 40px;
+    font-style: oblique;
+    margin-bottom: 20px;
+    color: #ffffff;
+}
+
+body {
+    background-image: url("magic-the-gathering_batch1.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    width: 100vw;
+    height: 100vh;
+}
