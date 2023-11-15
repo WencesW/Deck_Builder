@@ -14,9 +14,9 @@ const routes: Routes = [
     loadChildren: ()=>import("./modules/auth/auth.module").then(m => m.AuthModule)
   },
   {
-      path:'',
-      redirectTo:'landing',
-      pathMatch:'full'
+    path:'',
+    redirectTo:'landing',
+    pathMatch:'full'
   },
   {
     path:'**',
