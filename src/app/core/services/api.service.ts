@@ -8,7 +8,7 @@ import { Observable, catchError, map, of } from 'rxjs';
 })
 export class ApiService {
 
-  private baseURL = "http://localhost:3000"
+  private baseURL = "http://localhost:4200"
 
   private apiCall = "https://api.scryfall.com"
 
