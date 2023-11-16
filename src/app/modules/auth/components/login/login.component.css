@@ -34,7 +34,7 @@ input {
 }
 
 .login-button {
-  background-color: #007bff;
+  background-color: #083513;
   color: #fff;
   border: none;
   border-radius: 5px;
@@ -45,4 +45,13 @@ input {
 .login-button:disabled {
   background-color: #ccc;
   cursor: not-allowed;
+}
+
+body {
+  background-image: url("Door-of-Durin.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 100vw;
+  height: 100vh;
 }

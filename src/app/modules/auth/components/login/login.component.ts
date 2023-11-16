@@ -56,10 +56,8 @@ export class LoginComponent {
   async onSubmit() {
 
     if (this.loginForm.valid) {
-      // Aquí puedes implementar la lógica para verificar las credenciales de inicio de sesión
       console.log('Formulario válido. Usuario: ', this.loginForm.value.email);
     } else {
-      // El formulario no es válido, muestra un mensaje de error si es necesario.
       console.log('Formulario no válido');
     }
 

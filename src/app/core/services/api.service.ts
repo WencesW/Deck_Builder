@@ -10,6 +10,8 @@ export class ApiService {
 
   private baseURL = "http://localhost:3000"
 
+  private apiCall = "https://api.scryfall.com"
+
   constructor(private http: HttpClient) { }
 
   //! Users
@@ -27,4 +29,28 @@ export class ApiService {
     );
   }
 
-}
+
+  public async obtenerCarta(nombre: any) {
+    const url = `${this.apiCall}/cards/named/${nombre}`;
+      try {
+        const responseAPI = await fetch(url, { method: 'GET' });
+        if (!responseAPI.ok) {
+          throw new Error(`No se pudo obtener la carta ${nombre}`);
+        }
+        return await responseAPI.json();
+      } catch (error) {
+        throw error;
+      }
+    }
+  }
+
+  
+
+
+  
+
+
+
+
+  
+
