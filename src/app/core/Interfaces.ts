@@ -13,3 +13,12 @@ export interface LoginRespone {
   token: string
 }
 
+export interface Image_uris{
+  png: string
+}
+
+export interface ICards{
+  id: number | null;
+  name: string | null;
+  image_uris: Image_uris | null | undefined;
+}

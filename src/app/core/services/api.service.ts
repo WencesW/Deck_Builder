@@ -20,7 +20,6 @@ export class ApiService {
     return this.http.get<User[]>(`${this.baseURL}/users?email=${email}&password=${password}`);
   }
 
-  /* Ejemplo de como trasnformar la respuesta de la api */
   public getUserNameById(id:number): Observable<string | null> {
 
     return this.http.get<User>(`${this.baseURL}/users/${id}`).pipe(

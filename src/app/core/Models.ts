@@ -1,4 +1,4 @@
-import { IUser } from "./Interfaces";
+import { IUser, Image_uris, ICards } from "./Interfaces";
 
 export class User implements IUser {
 
@@ -12,6 +12,20 @@ export class User implements IUser {
     this.userName = user.userName != null ? user.userName : null;
     this.email = user.email != null ? user.email : null;
     this.password = user.password != null ? user.password : null;
+  }
+
+}
+
+export class Cards implements ICards {
+
+  id: number | null;
+  name: string | null;
+  image_uris: Image_uris | null | undefined;
+
+  constructor(card?: any) {
+    this.id = card.id != null ? card.id : null;
+    this.name = card.name != null ? card.userName : null;
+    this.image_uris = card.image_uris != null ? card.image_uris : null;
   }
 
 }
