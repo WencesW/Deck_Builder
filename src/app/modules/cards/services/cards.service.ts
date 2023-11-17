@@ -10,15 +10,10 @@ export class CardsService {
 
   constructor(private apiService: ApiService) { }
 
-  public getCards(): Promise<Cards[]> {
+  public obtenerCarta(nombre:string){
+    let data = this.apiService.obtenerCarta(nombre);
+    return data
+    };
 
-    return new Promise<Cards[]>((resolve, reject) => {
-
-    this.apiService.obtenerCarta(nombre : String)({
-        next: (data: Cards[] | PromiseLike<Cards[]>) => resolve(data),
-        error: (error: any) => reject(error)
-      })
-    });
-
-  }
 }
+
