@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { User } from 'src/app/core/Models';
+import { Cards, User } from 'src/app/core/Models';
 import { Observable, catchError, map, of } from 'rxjs';
 
 @Injectable({
@@ -29,7 +29,7 @@ export class ApiService {
   }
 
 
-  public async obtenerCarta(nombre: any) {
+  public async obtenerCarta(nombre: string) {
     const url = `${this.apiCall}/cards/named/${nombre}`;
       try {
         const responseAPI = await fetch(url, { method: 'GET' });
@@ -41,9 +41,8 @@ export class ApiService {
         throw error;
       }
     }
-  }
-
   
+}
 
 
   

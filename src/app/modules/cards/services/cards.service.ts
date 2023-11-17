@@ -6,7 +6,19 @@ import { lastValueFrom } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class TasksService {
+export class CardsService {
 
   constructor(private apiService: ApiService) { }
+
+  public getCards(): Promise<Cards[]> {
+
+    return new Promise<Cards[]>((resolve, reject) => {
+
+    this.apiService.obtenerCarta(nombre : String)({
+        next: (data: Cards[] | PromiseLike<Cards[]>) => resolve(data),
+        error: (error: any) => reject(error)
+      })
+    });
+
+  }
 }
