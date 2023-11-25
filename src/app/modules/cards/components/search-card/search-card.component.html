@@ -3,9 +3,19 @@
     <form autocomplete="off" [formGroup]="searchForm"  (ngSubmit)="onSubmit()">
       <div class="form-group">
         <label for="name">Search</label>
-        <input type="text" formControlName="description" placeholder="Ingresa la Carta que desea Buscar"/>
+        <input type="text" formControlName="name" placeholder="Ingresa la Carta que desea Buscar"/>
       </div>
       <button type="submit" [disabled]="searchForm.invalid" class="login-button">Buscar</button>
     </form>
-  </div>
+</div>
+<div class="view-card-container">
+          <table  style="text-align: center;" border="1">
+            <tbody>
+              <tr>
+                <td><img></td>
+                <td><button>Add</button></td>
+              </tr>
+            </tbody>
+          </table>
+</div>
   

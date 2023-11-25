@@ -25,7 +25,9 @@ export class SearchCardComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.cardService.obtenerCarta(this.searchForm.value.name)
+    let carta = this.cardService.obtenerCarta(this.searchForm.value.name)
+    console.log(carta);
+    
   }
 
 }
