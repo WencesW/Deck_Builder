@@ -10,9 +10,9 @@
           </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let cards of cards">
-            <td>{{ cards.name }}</td>
-            <td>{{ cards.image_uris }}</td>
+          <tr *ngFor="let card of cards">
+            <td>{{ card.name }}</td>
+            <td>{{ card.image_uris?.png }}</td>
             <td><button>Delete</button></td>
             <td><button>Add</button></td>
           </tr>

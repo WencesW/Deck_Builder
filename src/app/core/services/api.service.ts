@@ -43,6 +43,10 @@ export class ApiService {
         throw error;
       }
     }
+
+    public getDeck(): Observable<Cards[]> {
+      return this.http.get<Cards[]>(`${this.baseURL}/cards`);
+    }
   
 }
 

@@ -15,5 +15,17 @@ export class CardsService {
     return data
     };
 
+    public getDeck(): Promise<Cards[]> {
+
+      return new Promise<Cards[]>((resolve, reject) => {
+  
+        this.apiService.getDeck().subscribe({
+  
+          next: data => resolve(data),
+          error: error => reject(error)
+        })
+      });
+  
+    }
 }
 

@@ -1,3 +1,10 @@
 <app-nav-bar></app-nav-bar>
-<app-search-card></app-search-card>
-<app-view-deck></app-view-deck>
+<div class="search">
+    <app-search-card></app-search-card>
+</div>
+
+<div class="deck">
+    <app-view-deck [cards]="cards"></app-view-deck>    
+</div>
+
+
