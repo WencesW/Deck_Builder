@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/core/Models';
 import { ApiService } from 'src/app/core/services/api.service';
@@ -24,9 +25,9 @@ export class AuthService {
     try {
 
       let apiResponse = this.apiService.getToAuth(email, password);
-
+      console.log(apiResponse);
       let userRespone = await lastValueFrom(apiResponse);
-
+      console.log(userRespone);
       this.user = userRespone[0];
 
       if (this.user) {

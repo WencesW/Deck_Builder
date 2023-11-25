@@ -17,7 +17,9 @@ export class ApiService {
   //! Users
 
   public getToAuth(email: string, password: string): Observable<User[]> {
-    return this.http.get<User[]>(`${this.baseURL}/users?email=${email}&password=${password}`);
+    let response = this.http.get<User[]>(`${this.baseURL}/users?email=${email}&password=${password}`);
+    console.log(response);
+    return response;
   }
 
   public getUserNameById(id:number): Observable<string | null> {

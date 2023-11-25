@@ -1,1 +1,12 @@
-<p>search-card works!</p>
+<div class="task-form-container">
+    <h2>Buscar Carta</h2>
+    <form autocomplete="off" (ngSubmit)="onSubmit()">
+  
+      <div class="form-group">
+        <label for="description">Search</label>
+        <input type="text" formControlName="description" placeholder="Ingresa la Carta que desea Buscar"/>
+      </div>
+      <button type="submit" [disabled]="taskForm.invalid" class="login-button">Buscar</button>
+    </form>
+  </div>
+  
