@@ -25,9 +25,7 @@ export class AuthService {
     try {
 
       let apiResponse = this.apiService.getToAuth(email, password);
-      console.log(apiResponse);
       let userRespone = await lastValueFrom(apiResponse);
-      console.log(userRespone);
       this.user = userRespone[0];
 
       if (this.user) {

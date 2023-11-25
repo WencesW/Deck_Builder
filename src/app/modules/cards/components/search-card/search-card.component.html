@@ -1,12 +1,11 @@
 <div class="search-card-container">
     <h2>Buscar Carta</h2>
-    <form autocomplete="off" (ngSubmit)="onSubmit()">
-  
+    <form autocomplete="off" [formGroup]="searchForm"  (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="description">Search</label>
+        <label for="name">Search</label>
         <input type="text" formControlName="description" placeholder="Ingresa la Carta que desea Buscar"/>
       </div>
-      <button type="submit" [disabled]="taskForm.invalid" class="login-button">Buscar</button>
+      <button type="submit" [disabled]="searchForm.invalid" class="login-button">Buscar</button>
     </form>
   </div>
   

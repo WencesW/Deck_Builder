@@ -5,9 +5,9 @@
     <ul class="nav-links">
         <li *ngIf="isUser"><a href="#">Search</a></li>
         <li *ngIf="isUser"><a href="#">Deck</a></li>
-        <li><a (click)="goToLogin()">Log In</a></li>
-        <li><a (click)="goToRegister()">Register</a></li>
-        <li *ngIf="isUser"><a>Logout</a></li>
+        <li *ngIf="isUser"(click)="logout()"><a>Logout</a></li>
+        <li><a *ngIf="!isUser"(click)="goToLogin()">Log In</a></li>
+        <li><a *ngIf="!isUser"(click)="goToRegister()">Register</a></li>
     </ul>
 </nav>
   

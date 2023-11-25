@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormBuilder } from '@angular/forms';
 import { User } from 'src/app/core/Models';
+import { ApiService } from 'src/app/core/services/api.service';
 
 @Component({
   selector: 'app-register',
@@ -21,23 +22,20 @@ export class RegisterComponent implements OnInit{
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
 
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: FormBuilder,private apiService:ApiService) {}
 
   ngOnInit(): void {
   }
 
   public onSubmit() {
-
     this.user.userName = this.userForm.value.username;
     this.user.email = this.userForm.value.email;
     this.user.password = this.userForm.value.password;
-    this.emitCharacter();
+    this.apiService.addUser(this.user);
   }
 
   public emitCharacter() {
-
-    this.onNewUser.emit(this.user);
-
+    this.apiService.addUser(this.user);
   }
 
 

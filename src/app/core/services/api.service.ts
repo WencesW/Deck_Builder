@@ -30,6 +30,9 @@ export class ApiService {
     );
   }
 
+  public addUser(user: User): Observable<User> {
+    return this.http.post<User>(`${this.baseURL}/users`, user);
+  }
 
   public async obtenerCarta(nombre: string) {
     const url = `${this.apiCall}/cards/named/${nombre}`;

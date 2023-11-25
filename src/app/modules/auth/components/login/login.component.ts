@@ -26,8 +26,6 @@ export class LoginComponent {
   constructor(private fb: FormBuilder, private router: Router, private authService: AuthService) { }
 
   ngOnInit() {
-
-
   }
 
   isValidFiled(field: string): boolean | null {
