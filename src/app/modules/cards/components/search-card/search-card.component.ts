@@ -24,7 +24,6 @@ export class SearchCardComponent implements OnInit {
 
   public onSubmit() {
     this.card = this.cardService.obtenerCarta(this.searchForm.value.name)
-    this.cards.image_uris=this.card.image_uris
   }
 
 }

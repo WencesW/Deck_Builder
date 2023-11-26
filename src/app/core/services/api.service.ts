@@ -10,7 +10,7 @@ export class ApiService {
  
   private baseURL = "http://localhost:3000"
 
-  private apiCall = "https://api.scryfall.com"
+  private  apiCall = "https://api.scryfall.com"
 
   constructor(private http: HttpClient) { }
 
@@ -46,7 +46,6 @@ export class ApiService {
     const url = `${this.apiCall}/cards/named?exact=${nombre}`;
       try {
         const responseAPI = await fetch(url, { method: 'GET' });
-        console.log(responseAPI);
         if (!responseAPI.ok) {
           throw new Error(`No se pudo obtener la carta ${nombre}`);
         }
@@ -73,27 +72,15 @@ export class ApiService {
       }
     }
 
-    /*public async obtenerCartas(nombre: string) {
-       let bulkNames : any
-        bulkNames = this.autocompletarCarta(nombre);
-      try {
-        const response = await fetch(bulkNames);
-        if (!response.ok) {
-          throw new Error(`Failed to fetch JSON data. Status: ${response.status}`);
-        }
-        const jsonData = await response.json();
-            const dataArray = jsonData.data;
-        if (dataArray) {
-          dataArray.forEach((item: any, index: number) => {
-            console.log(`${index + 1}. ${item}`);
-          });
-        } else {
-          console.log('Array is empty or undefined.');
-        }
-      } catch (error) {
-        console.error('Error fetching or printing data from JSON URL:');
+    public async obtenerCartas(nombre: string) {
+      let bulkCardNames = await this.autocompletarCarta(nombre);
+      let arrayBulk: Promise<any>[] = [];
+      var dataArray = bulkCardNames.data;
+      dataArray.forEach((element: any) => {
+        arrayBulk.push( this.obtenerCarta(element));
+      });
+      return arrayBulk;
       }
-      }*/
 
       public deleteCard(id: number): Observable<boolean> {
 
