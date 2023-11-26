@@ -10,14 +10,12 @@ import { CardsService } from '../../services/cards.service';
 })
 
 export class SearchCardComponent implements OnInit {
-
-  @Output() public onNewTask: EventEmitter<Cards> = new EventEmitter();
-
-  public task: Cards = new Cards({ id: null });
-
+  public cards: Cards = new Cards({ id: null });
+  card: any;
   public searchForm: FormGroup = this.fb.group({
     name: new FormControl('', [Validators.required]),
   });
+  
 
   constructor(private fb: FormBuilder, private cardService:CardsService) { }
 
@@ -25,9 +23,8 @@ export class SearchCardComponent implements OnInit {
   }
 
   public onSubmit() {
-    let carta = this.cardService.obtenerCarta(this.searchForm.value.name)
-    console.log(carta);
-    
+    this.card = this.cardService.obtenerCarta(this.searchForm.value.name)
+    this.cards.image_uris=this.card.image_uris
   }
 
 }

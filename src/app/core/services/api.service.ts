@@ -43,9 +43,10 @@ export class ApiService {
   //! Cards
 
   public async obtenerCarta(nombre: string) {
-    const url = `${this.apiCall}/cards/named/${nombre}`;
+    const url = `${this.apiCall}/cards/named?exact=${nombre}`;
       try {
         const responseAPI = await fetch(url, { method: 'GET' });
+        console.log(responseAPI);
         if (!responseAPI.ok) {
           throw new Error(`No se pudo obtener la carta ${nombre}`);
         }
@@ -72,7 +73,7 @@ export class ApiService {
       }
     }
 
-    public async obtenerCartas(nombre: string) {
+    /*public async obtenerCartas(nombre: string) {
        let bulkNames : any
         bulkNames = this.autocompletarCarta(nombre);
       try {
@@ -92,7 +93,7 @@ export class ApiService {
       } catch (error) {
         console.error('Error fetching or printing data from JSON URL:');
       }
-      }
+      }*/
 
       public deleteCard(id: number): Observable<boolean> {
 
