@@ -1,5 +1,6 @@
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Cards } from 'src/app/core/Models';
+import { CardsService } from '../../services/cards.service';
 
 @Component({
   selector: 'app-view-deck',
@@ -8,15 +9,14 @@ import { Cards } from 'src/app/core/Models';
 })
 export class ViewDeckComponent {
   @Input() cards: Cards[] = [];
-  @Output() cardToDelete: EventEmitter<number> = new EventEmitter();
-  constructor() {
+  constructor(private cardService:CardsService) {
   }
 
   ngOnInit(): void {
 
   }
 
-  public deleteCard(id: number) {
-    this.cardToDelete.emit(id);
+  public deleteCard(id: number){
+      this.cardService.deleteCard(id);
   }
 }
