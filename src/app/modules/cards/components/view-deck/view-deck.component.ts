@@ -1,6 +1,7 @@
 import { Component, Input } from '@angular/core';
 import { Cards } from 'src/app/core/Models';
 import { CardsService } from '../../services/cards.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-view-deck',
@@ -9,7 +10,7 @@ import { CardsService } from '../../services/cards.service';
 })
 export class ViewDeckComponent {
   @Input() cards: Cards[] = [];
-  constructor(private cardService:CardsService) {
+  constructor(private cardService:CardsService,private router: Router) {
   }
 
   ngOnInit(): void {
@@ -18,5 +19,6 @@ export class ViewDeckComponent {
 
   public deleteCard(id: number){
       this.cardService.deleteCard(id);
+      location.reload();
   }
 }
