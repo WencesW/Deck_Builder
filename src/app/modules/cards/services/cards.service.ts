@@ -10,22 +10,30 @@ export class CardsService {
 
   constructor(private apiService: ApiService) { }
 
-  public obtenerCarta(nombre:string){
-    let data = this.apiService.obtenerCarta(nombre);
-    return data
-    };
+      public obtenerCarta(nombre:string){
+          //let data = this.apiService.obtenerCarta(nombre);
+          this.apiService.obtenerCartas(nombre);
+          //return data
+        };
 
-    public getDeck(): Promise<Cards[]> {
+      public getDeck(): Promise<Cards[]> {
+        return new Promise<Cards[]>((resolve, reject) => {
+          this.apiService.getDeck().subscribe({
+            next: data => resolve(data),
+            error: error => reject(error)
+          })
+        });
+      }
 
-      return new Promise<Cards[]>((resolve, reject) => {
-  
-        this.apiService.getDeck().subscribe({
-  
-          next: data => resolve(data),
-          error: error => reject(error)
-        })
-      });
-  
-    }
+      public deleteCard(id: number): Promise<boolean> {
+
+        return new Promise<boolean>((resolve, reject) => {
+          this.apiService.deleteCard(id).subscribe({
+            next: bool => resolve(bool),
+            error: error => reject(error)
+          })
+        });
+      }
+
 }
 

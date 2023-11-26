@@ -16,4 +16,7 @@ export class ViewDeckComponent {
 
   }
 
+  public deleteCard(id: number) {
+    this.cardToDelete.emit(id);
+  }
 }

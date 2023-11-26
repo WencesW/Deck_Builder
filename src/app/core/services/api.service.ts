@@ -7,7 +7,7 @@ import { Observable, catchError, map, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
-
+ 
   private baseURL = "http://localhost:3000"
 
   private apiCall = "https://api.scryfall.com"
@@ -40,6 +40,8 @@ export class ApiService {
     return this.http.post<User>(`${this.baseURL}/users`, user);
   }
 
+  //! Cards
+
   public async obtenerCarta(nombre: string) {
     const url = `${this.apiCall}/cards/named/${nombre}`;
       try {
@@ -57,6 +59,49 @@ export class ApiService {
       return this.http.get<Cards[]>(`${this.baseURL}/cards`);
     }
   
+    public async autocompletarCarta(nombre:string){
+      const url = `${this.apiCall}/cards/autocomplete?q=${nombre}`;
+      try {
+        const responseAPI = await fetch(url, { method: 'GET' });
+        if (!responseAPI.ok) {
+          throw new Error(`No se pudo obtener las cartas`);
+        }
+        return await responseAPI.json();
+      } catch (error) {
+        throw error;
+      }
+    }
+
+    public async obtenerCartas(nombre: string) {
+       let bulkNames : any
+        bulkNames = this.autocompletarCarta(nombre);
+      try {
+        const response = await fetch(bulkNames);
+        if (!response.ok) {
+          throw new Error(`Failed to fetch JSON data. Status: ${response.status}`);
+        }
+        const jsonData = await response.json();
+            const dataArray = jsonData.data;
+        if (dataArray) {
+          dataArray.forEach((item: any, index: number) => {
+            console.log(`${index + 1}. ${item}`);
+          });
+        } else {
+          console.log('Array is empty or undefined.');
+        }
+      } catch (error) {
+        console.error('Error fetching or printing data from JSON URL:');
+      }
+      }
+
+      public deleteCard(id: number): Observable<boolean> {
+
+        return this.http.delete(`${this.baseURL}/cards/${id}`)
+          .pipe(
+            map(resp => true),
+            catchError(error => of(false))
+          );
+      }
 }
 
 
