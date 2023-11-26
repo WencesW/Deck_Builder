@@ -30,7 +30,13 @@ export class ApiService {
     );
   }
 
+  public getUsers(): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseURL}/users`);
+  }
+
   public addUser(user: User): Observable<User> {
+    let length = this.getUsers.length
+    user.id = length++;
     return this.http.post<User>(`${this.baseURL}/users`, user);
   }
 

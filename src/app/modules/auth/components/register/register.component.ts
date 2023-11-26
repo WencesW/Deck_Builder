@@ -34,9 +34,4 @@ export class RegisterComponent implements OnInit{
     this.apiService.addUser(this.user);
   }
 
-  public emitCharacter() {
-    this.apiService.addUser(this.user);
-  }
-
-
 }

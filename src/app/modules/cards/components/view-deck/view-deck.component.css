@@ -8,5 +8,9 @@ table{
     text-align: center;
     margin-left: auto;
     margin-right: auto;
+}
 
+img{
+    max-width: 50%;
+    max-height: 50%
 }
