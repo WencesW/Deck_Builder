@@ -8,11 +8,11 @@
       <button type="submit" [disabled]="searchForm.invalid" class="login-button">Buscar</button>
     </form>
 </div>
-<div class="view-card-container">
+<div class="view-card-container" *ngFor="let card of cards">
           <table  style="text-align: center;" border="1">
             <tbody>
               <tr>
-                <td><img></td>
+                <td><img img class="img" src="{{ card.img }}" alt="{{ card.name }}"></td>
                 <td><button>Add</button></td>
               </tr>
             </tbody>

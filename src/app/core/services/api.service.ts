@@ -49,6 +49,8 @@ export class ApiService {
         if (!responseAPI.ok) {
           throw new Error(`No se pudo obtener la carta ${nombre}`);
         }
+        //console.log(responseAPI);
+        
         return await responseAPI.json();
       } catch (error) {
         throw error;
@@ -74,11 +76,22 @@ export class ApiService {
 
     public async obtenerCartas(nombre: string) {
       let bulkCardNames = await this.autocompletarCarta(nombre);
-      let arrayBulk: Promise<any>[] = [];
+      let arrayBulk: any = [];
+      //console.log(bulkCardNames);
+      
       var dataArray = bulkCardNames.data;
+  
       dataArray.forEach((element: any) => {
-        arrayBulk.push( this.obtenerCarta(element));
+        this.obtenerCarta(element).then(resultado => {
+          let name = resultado.name;
+          let img = resultado.image_uris.normal;
+          arrayBulk.push({'name':name, 'img':img});         
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        });
       });
+      //console.log(arrayBulk);
       return arrayBulk;
       }
 

@@ -11,9 +11,7 @@ export class CardsService {
   constructor(private apiService: ApiService) { }
 
       public obtenerCarta(nombre:string){
-          
-        console.log(this.apiService.obtenerCartas(nombre));
-          
+      return this.apiService.obtenerCartas(nombre);
         };
 
       public getDeck(): Promise<Cards[]> {

@@ -10,8 +10,8 @@ import { CardsService } from '../../services/cards.service';
 })
 
 export class SearchCardComponent implements OnInit {
-  public cards: Cards = new Cards({ id: null });
-  card: any;
+  public card: Cards = new Cards({ id: null });
+  public cards :any= [];
   public searchForm: FormGroup = this.fb.group({
     name: new FormControl('', [Validators.required]),
   });
@@ -23,7 +23,13 @@ export class SearchCardComponent implements OnInit {
   }
 
   public onSubmit() {
-    this.card = this.cardService.obtenerCarta(this.searchForm.value.name)
+    
+    this.cardService.obtenerCarta(this.searchForm.value.name).then ( resultado => {
+      this.cards=resultado;
+    })  
+    
+    console.log(this.cards);
+    
   }
 
 }
