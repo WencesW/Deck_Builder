@@ -8,6 +8,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class CardsService {
 
+  private card: Cards | null | undefined = null;
 
   constructor(private apiService: ApiService) { }
 
@@ -34,8 +35,19 @@ export class CardsService {
         });
       }
 
-      public addCardDeck(name:string,img:string){
-       this.apiService.addCard(name,img);
+      
+
+
+        public async addCardDeck(card: Cards): Promise<boolean> {
+          let flag = false;
+          try{
+            this.card = await lastValueFrom(this.apiService.addCard(card));   
+            flag=true; 
+          }
+          catch{
+            console.log("error");
+          }   
+          return flag;
         }
 }
 

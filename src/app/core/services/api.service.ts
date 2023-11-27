@@ -12,8 +12,6 @@ export class ApiService {
 
   private  apiCall = "https://api.scryfall.com"
  
-  dataLength!: number;
-
   constructor(private http: HttpClient) { }
 
   //! Users
@@ -105,14 +103,8 @@ export class ApiService {
       }
 
 
-      public addCard(name:string,img:string){
-        //console.log(name,img);
-        let card: Cards = new Cards({id:null,name:null,image_uris:null});
-        let length = this.getCards.length;
-        card.name==name;
-        card.id=length++;
-        card.image_uris!.png=img;
-        this.http.post<Cards>(`${this.baseURL}/cards`, card);
+      public addCard(card:Cards): Observable<Cards>{
+        return this.http.post<Cards>(`${this.baseURL}/cards`, card);
       }
 
       public getCards(): Observable<Cards[]> {
