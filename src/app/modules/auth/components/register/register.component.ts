@@ -23,6 +23,7 @@ export class RegisterComponent implements OnInit{
     email: new FormControl('', [Validators.required, Validators.pattern(this.emailPattern)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
   });
+  showError: boolean=false;
 
   constructor(private fb: FormBuilder,private apiService:ApiService,private authService:AuthService,private router: Router) {}
 
@@ -44,7 +45,8 @@ export class RegisterComponent implements OnInit{
       if (response) {
         this.router.navigate(["/main"]);
       } else {
-        console.log("error");
+        this.showError = true; 
+        this.userForm.reset();
         };
       })
     }

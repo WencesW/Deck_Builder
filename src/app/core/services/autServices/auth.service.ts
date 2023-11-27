@@ -51,14 +51,28 @@ export class AuthService {
   public async registerNewUser(user: User): Promise<boolean> {
     let registerOk = false;
     try{
-      this.user = await lastValueFrom(this.apiService.addUser(user));
-      registerOk=true    
+      registerOk=await this.authUserToRegister(user);
+      if(registerOk){
+        this.user = await lastValueFrom(this.apiService.addUser(user));  
+      }
     }
     catch{
       console.log("error");
-      
     }
     return registerOk;   
+  }
+
+  public async authUserToRegister(user: User): Promise<boolean> {
+    let newUserRegister: User[] = [];
+      try {
+          const emailResult = await lastValueFrom(
+            this.apiService.authEmailUserRegister(user.email!),
+          );
+          newUserRegister = emailResult;
+        } catch (error) {
+          console.log(error);
+        }
+    return newUserRegister.length === 0;
   }
   
 

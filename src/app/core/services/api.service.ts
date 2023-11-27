@@ -38,6 +38,10 @@ export class ApiService {
     return this.http.post<User>(`${this.baseURL}/users`, user);
   }
 
+  public authEmailUserRegister(email:string ): Observable<User[]> {
+    return this.http.get<User[]>(`${this.baseURL}/users?email=${email}`)
+  }
+
   //! Cards
 
   public async obtenerCarta(nombre: string) {
@@ -47,10 +51,9 @@ export class ApiService {
         if (!responseAPI.ok) {
           throw new Error(`No se pudo obtener la carta ${nombre}`);
         }
-        //console.log(responseAPI);
-        
         return await responseAPI.json();
-      } catch (error) {
+      } 
+        catch (error) {
         throw error;
       }
     }

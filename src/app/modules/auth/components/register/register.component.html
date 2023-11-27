@@ -2,6 +2,7 @@
     <app-nav-bar></app-nav-bar>
     <div class="register-container">
         <h2>Crear Usuario</h2>
+        
         <form autocomplete="off" [formGroup]="userForm" (ngSubmit)="onSubmit()">
     
             <div class="form-group">
@@ -18,7 +19,7 @@
                 <label for="password">Contraseña</label>
                 <input type="password" formControlName="password" placeholder="Ingrese contraseña para el usuario"/>
             </div>
-    
+        <div *ngIf="showError" class="error-message">El email que quiere registar ya existe</div>
         <button type="submit" [disabled]="userForm.invalid" class="login-button">Crear Usuario</button>
         </form>
     </div>
