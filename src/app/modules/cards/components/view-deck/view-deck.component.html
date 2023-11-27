@@ -11,7 +11,7 @@
         <tbody>
           <tr *ngFor="let card of cards">
             <td>{{ card.name }}</td>
-            <td><img class="img" src="{{ card.image_uris?.png }}" alt="{{ card.name }}"></td>
+            <td><img class="img" src="{{ card.png}}" alt="{{ card.name }}"></td>
             <td><button (click)="deleteCard(card.id!)">Delete</button></td>
           </tr>
         </tbody>
