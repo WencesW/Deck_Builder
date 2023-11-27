@@ -8,6 +8,7 @@ import { lastValueFrom } from 'rxjs';
 })
 export class CardsService {
 
+
   constructor(private apiService: ApiService) { }
 
       public obtenerCarta(nombre:string){
@@ -33,5 +34,9 @@ export class CardsService {
         });
       }
 
+      public addCardDeck(name:string,img:string){
+       this.apiService.addCard(name,img);
+        }
 }
+
 

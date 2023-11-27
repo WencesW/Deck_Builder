@@ -13,7 +13,7 @@
             <tbody>
               <tr>
                 <td><img img class="img" src="{{ card.img }}" alt="{{ card.name }}"></td>
-                <td><button>Add</button></td>
+                <td><button (click)="addCard(card.name,card.img)">Add</button></td>
               </tr>
             </tbody>
           </table>

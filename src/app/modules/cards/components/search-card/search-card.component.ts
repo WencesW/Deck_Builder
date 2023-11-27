@@ -11,7 +11,7 @@ import { CardsService } from '../../services/cards.service';
 
 export class SearchCardComponent implements OnInit {
   public card: Cards = new Cards({ id: null });
-  public cards :any= [];
+  public cards : any=[];
   public searchForm: FormGroup = this.fb.group({
     name: new FormControl('', [Validators.required]),
   });
@@ -30,6 +30,10 @@ export class SearchCardComponent implements OnInit {
     
     console.log(this.cards);
     
+  }
+
+  public addCard(name:string,img:string){
+    this.cardService.addCardDeck(name,img);
   }
 
 }

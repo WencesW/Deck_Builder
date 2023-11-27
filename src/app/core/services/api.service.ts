@@ -11,6 +11,8 @@ export class ApiService {
   private baseURL = "http://localhost:3000"
 
   private  apiCall = "https://api.scryfall.com"
+ 
+
 
   constructor(private http: HttpClient) { }
 
@@ -103,6 +105,22 @@ export class ApiService {
             catchError(error => of(false))
           );
       }
+
+
+      public addCard(name:string,img:string){
+        let card: Cards = new Cards({id:null,name:null,image_uris:null});
+        let length = this.getCards.length;
+        console.log(length);
+        card.name==name;
+        card.id=length++;
+        card.image_uris!.png=img;
+        this.http.post<Cards>(`${this.baseURL}/cards`, card);
+      }
+
+      public getCards(): Observable<Cards[]> {
+        return this.http.get<Cards[]>(`${this.baseURL}/cards`);
+      }
+
 }
 
 
