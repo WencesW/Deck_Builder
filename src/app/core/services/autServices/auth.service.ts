@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { User } from 'src/app/core/Models';
 import { ApiService } from 'src/app/core/services/api.service';
-import { Observable, lastValueFrom, map } from 'rxjs';
+import { Observable, forkJoin, lastValueFrom, map } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -39,7 +39,6 @@ export class AuthService {
     return isLogin;
   }
 
-
   public logout(){
     this.user = undefined;
     localStorage.clear();
@@ -49,5 +48,18 @@ export class AuthService {
     return localStorage.getItem('token') ? true : false;
   }
 
+  public async registerNewUser(user: User): Promise<boolean> {
+    let registerOk = false;
+    try{
+      this.user = await lastValueFrom(this.apiService.addUser(user));
+      registerOk=true    
+    }
+    catch{
+      console.log("error");
+      
+    }
+    return registerOk;   
+  }
+  
 
 }

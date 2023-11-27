@@ -12,7 +12,7 @@ export class ApiService {
 
   private  apiCall = "https://api.scryfall.com"
  
-
+  dataLength!: number;
 
   constructor(private http: HttpClient) { }
 
@@ -20,7 +20,7 @@ export class ApiService {
 
   public getToAuth(email: string, password: string): Observable<User[]> {
     let response = this.http.get<User[]>(`${this.baseURL}/users?email=${email}&password=${password}`);
-    console.log(response);
+    //console.log(response);
     return response;
   }
 
@@ -37,8 +37,6 @@ export class ApiService {
   }
 
   public addUser(user: User): Observable<User> {
-    let length = this.getUsers.length
-    user.id = length++;
     return this.http.post<User>(`${this.baseURL}/users`, user);
   }
 
@@ -108,9 +106,9 @@ export class ApiService {
 
 
       public addCard(name:string,img:string){
+        //console.log(name,img);
         let card: Cards = new Cards({id:null,name:null,image_uris:null});
         let length = this.getCards.length;
-        console.log(length);
         card.name==name;
         card.id=length++;
         card.image_uris!.png=img;
