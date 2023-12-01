@@ -1,11 +1,12 @@
-<div class="view-card-container" *ngFor="let card of cards">
+<div class="view-card-container" *ngFor="let card of cards" style="display: flex; flex-direction: column; align-items: center;">
   <h2>Carta Random</h2>
-          <table  style="text-align: center;" border="1">
-            <tbody>
-              <tr>
-                <td><img img class="img" src="{{ card.img }}" alt="{{ card.name }}"></td>
-                <td><button (click)="addCard(card.name,card.img)">Add</button></td>
-              </tr>
-            </tbody>
-          </table>
+  <table style="text-align: center;" border="1">
+    <tbody>
+      <tr>
+        <td><img class="img" src="{{ card.img }}" alt="{{ card.name }}"></td>
+        <td><button (click)="addCard(card.name, card.img)">Add</button></td>
+      </tr>
+    </tbody>
+  </table>
+  <button class="randomButton" (click)="otherRandom()">Random &#10542;</button>
 </div>

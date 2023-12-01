@@ -33,4 +33,8 @@ export class RandomCardComponent {
         };
       })
     }
+
+  public otherRandom(){
+    location.reload();
+  }
 }

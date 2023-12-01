@@ -22,3 +22,7 @@ button:hover {
 h2{
     text-align: center;
 }
+
+.randomButton{
+    align-self: center;
+}
