@@ -36,10 +36,7 @@ export class CardsService {
         });
       }
 
-      
-
-
-        public async addCardDeck(card: Cards): Promise<boolean> {
+      public async addCardDeck(card: Cards): Promise<boolean> {
           let flag = false;
           try{
             this.card = await lastValueFrom(this.apiService.addCard(card));   
@@ -50,6 +47,10 @@ export class CardsService {
           }   
           return flag;
         }
+
+        public obtenerCartaRandom(){
+          return this.apiService.obtenerCartaRandom();
+            };
 }
 
 

@@ -109,11 +109,32 @@ export class ApiService {
         return this.http.get<Cards[]>(`${this.baseURL}/cards`);
       }
 
-      public randomCard(): Observable<Cards[]> {
-        return this.http.get<Cards[]>(`${this.baseURL}/cards/random`);
+      public async randomCard() {
+        const url = `${this.apiCall}/cards/random`;
+        try {
+          const responseAPI = await fetch(url, { method: 'GET' });
+          if (!responseAPI.ok) {
+            throw new Error(`Error`);
+          }
+          return await responseAPI.json();
+        } 
+          catch (error) {
+          throw error;
+        }
       }
 
-     
+      public async obtenerCartaRandom() {
+        let arrayBulk: any = [];   
+        this.randomCard().then(resultado => {
+          let name = resultado.name;
+          let img = resultado.image_uris.normal;
+          arrayBulk.push({'name':name, 'img':img});         
+        })
+        .catch(error => {
+          console.error('Error:', error);
+        }); 
+        return arrayBulk;
+      }
 }
 
 

@@ -4,12 +4,14 @@ import { SearchCardComponent } from './components/search-card/search-card.compon
 import { ViewDeckComponent } from './components/view-deck/view-deck.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { SharedModule } from "../../shared/shared.module";
+import { RandomCardComponent } from './components/random-card/random-card.component';
 
 
 @NgModule({
     declarations: [
         ViewDeckComponent,
-        SearchCardComponent
+        SearchCardComponent,
+        RandomCardComponent
     ],
     exports: [
         ViewDeckComponent,

@@ -35,8 +35,23 @@
     },
     {
       "id": 10,
-      "name": "Sol Grail",
-      "png": "https://cards.scryfall.io/normal/front/9/e/9ee44783-d464-4134-ac41-d61a5b9de22c.jpg?1562928546"
+      "name": "Sunbeam Spellbomb",
+      "png": "https://cards.scryfall.io/normal/front/d/2/d23ffdb7-9f8e-4376-9431-cf1c1814f2c4.jpg?1562158729"
+    },
+    {
+      "id": 11,
+      "name": "Militant Inquisitor",
+      "png": "https://cards.scryfall.io/normal/front/6/8/68d99f1f-80d6-4b5e-aeae-83fb8ae62cdc.jpg?1576383815"
+    },
+    {
+      "id": 12,
+      "name": "Fleshbag Marauder",
+      "png": "https://cards.scryfall.io/normal/front/f/9/f9220bde-ff88-4080-b657-3aca494e1d12.jpg?1562090232"
+    },
+    {
+      "id": 13,
+      "name": "Hibernation",
+      "png": "https://cards.scryfall.io/normal/front/d/5/d5e87e73-b999-4d57-98ee-1c9f33baca74.jpg?1675830200"
     }
   ]
 }
