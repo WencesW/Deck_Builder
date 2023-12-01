@@ -52,6 +52,16 @@
       "id": 13,
       "name": "Hibernation",
       "png": "https://cards.scryfall.io/normal/front/d/5/d5e87e73-b999-4d57-98ee-1c9f33baca74.jpg?1675830200"
+    },
+    {
+      "id": 14,
+      "name": "Hissing Quagmire",
+      "png": "https://cards.scryfall.io/normal/front/b/0/b04848a9-2a9b-4b0f-89dd-cc7d2b54fc96.jpg?1562871696"
+    },
+    {
+      "id": 15,
+      "name": "Chaos Confetti",
+      "png": "https://cards.scryfall.io/normal/front/a/5/a5cee00a-5ab5-43c3-8017-db20d37e69c4.jpg?1562799136"
     }
   ]
 }
