@@ -11,6 +11,10 @@ table{
 }
 
 img{
-    max-width: 50%;
-    max-height: 50%
+    max-width: 40%;
+    max-height: 25%
+}
+
+button:hover {
+    background-color: #df1a1a;
 }

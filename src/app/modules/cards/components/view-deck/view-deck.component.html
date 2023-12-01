@@ -1,16 +1,11 @@
 <div class="view-deck-container">
+  <h2>DECK</h2>
       <table  style="text-align: center;" border="1">
-        <thead>
-          <tr>
-            <th>Name</th>
-            <th>Imagen</th>
-          </tr>
-        </thead>
         <tbody>
           <tr *ngFor="let card of cards">
             <td>{{ card.name }}</td>
             <td><img class="img" src="{{ card.png}}" alt="{{ card.name }}"></td>
-            <td><button (click)="deleteCard(card.id!)">Delete</button></td>
+            <td><button (click)="deleteCard(card.id!)">Delete&#9003;</button></td>
           </tr>
         </tbody>
       </table>
