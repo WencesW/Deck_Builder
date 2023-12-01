@@ -16,6 +16,7 @@ export class CardsService {
       return this.apiService.obtenerCartas(nombre);
         };
 
+
       public getDeck(): Promise<Cards[]> {
         return new Promise<Cards[]>((resolve, reject) => {
           this.apiService.getDeck().subscribe({

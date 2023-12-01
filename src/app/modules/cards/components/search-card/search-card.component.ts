@@ -21,11 +21,9 @@ export class SearchCardComponent implements OnInit {
   constructor(private fb: FormBuilder, private cardService:CardsService, private router:Router) { }
 
   ngOnInit(): void {
-
   }
 
   public onSubmit() {
-    
     this.cardService.obtenerCarta(this.searchForm.value.name).then ( resultado => {
       this.cards=resultado;
     })     

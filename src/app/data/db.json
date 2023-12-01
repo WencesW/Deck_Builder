@@ -32,6 +32,11 @@
       "id": 9,
       "name": "Sol Ring",
       "png": "https://cards.scryfall.io/normal/front/2/d/2d47121d-8b90-4d28-9ffa-0a640b9dd611.jpg?1698988534"
+    },
+    {
+      "id": 10,
+      "name": "Sol Grail",
+      "png": "https://cards.scryfall.io/normal/front/9/e/9ee44783-d464-4134-ac41-d61a5b9de22c.jpg?1562928546"
     }
   ]
 }

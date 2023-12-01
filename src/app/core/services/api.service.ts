@@ -7,7 +7,6 @@ import { Observable, catchError, map, of } from 'rxjs';
   providedIn: 'root'
 })
 export class ApiService {
- 
   private baseURL = "http://localhost:3000"
 
   private  apiCall = "https://api.scryfall.com"
@@ -77,11 +76,8 @@ export class ApiService {
 
     public async obtenerCartas(nombre: string) {
       let bulkCardNames = await this.autocompletarCarta(nombre);
-      let arrayBulk: any = [];
-      //console.log(bulkCardNames);
-      
+      let arrayBulk: any = [];      
       var dataArray = bulkCardNames.data;
-  
       dataArray.forEach((element: any) => {
         this.obtenerCarta(element).then(resultado => {
           let name = resultado.name;
@@ -92,7 +88,6 @@ export class ApiService {
           console.error('Error:', error);
         });
       });
-      //console.log(arrayBulk);
       return arrayBulk;
       }
 
@@ -114,6 +109,11 @@ export class ApiService {
         return this.http.get<Cards[]>(`${this.baseURL}/cards`);
       }
 
+      public randomCard(): Observable<Cards[]> {
+        return this.http.get<Cards[]>(`${this.baseURL}/cards/random`);
+      }
+
+     
 }
 
 

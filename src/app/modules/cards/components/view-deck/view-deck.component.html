@@ -1,13 +1,20 @@
 <div class="view-deck-container">
   <h2>DECK</h2>
-      <table  style="text-align: center;" border="1">
-        <tbody>
-          <tr *ngFor="let card of cards">
-            <td>{{ card.name }}</td>
-            <td><img class="img" src="{{ card.png}}" alt="{{ card.name }}"></td>
-            <td><button (click)="deleteCard(card.id!)">Delete&#9003;</button></td>
-          </tr>
-        </tbody>
-      </table>
-  </div>
-  
+  <table style="text-align: center;" border="1">
+    <tbody>
+      <tr *ngFor="let card of cards">
+        <td>
+          <div>
+            {{ card.name }}
+          </div>
+          <div>
+            <img class="img" src="{{ card.png }}" alt="{{ card.name }}">
+          </div>
+        </td>
+        <td>
+          <button (click)="deleteCard(card.id!)">Delete&#9003;</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>
