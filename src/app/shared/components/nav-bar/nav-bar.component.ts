@@ -21,8 +21,16 @@ export class NavBarComponent implements OnInit {
    this.router.navigate(["/auth/login"]);
   }
 
+  public goToSearch(){
+    this.router.navigate(["/main/search"]);
+  }
+
   public goToRegister() {
     this.router.navigate(["/auth/register"]);
+   }
+
+   public goToDeck() {
+    this.router.navigate(["/main"]);
    }
 
   public logout() {

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Cards } from 'src/app/core/Models';
-import { CardsService } from 'src/app/modules/cards/services/cards.service';
+import { CardsService } from 'src/app/core/services/cards.service';
 
 @Component({
   selector: 'app-main-page',

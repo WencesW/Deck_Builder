@@ -2,7 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { Cards } from 'src/app/core/Models';
 import { Router } from '@angular/router';
-import { CardsService } from '../../services/cards.service';
+import { CardsService } from '../../../../core/services/cards.service';
 
 @Component({
   selector: 'app-search-card',
@@ -21,16 +21,14 @@ export class SearchCardComponent implements OnInit {
   constructor(private fb: FormBuilder, private cardService:CardsService, private router:Router) { }
 
   ngOnInit(): void {
+
   }
 
   public onSubmit() {
     
     this.cardService.obtenerCarta(this.searchForm.value.name).then ( resultado => {
       this.cards=resultado;
-    })  
-    
-    console.log(this.cards);
-    
+    })     
   }
 
   public addCard(name:string,img:string){

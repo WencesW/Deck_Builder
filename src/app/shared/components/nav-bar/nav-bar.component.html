@@ -3,6 +3,8 @@
        <a href="">Deck Builder</a>
     </div>
     <ul class="nav-links">
+        <li *ngIf="isUser"(click)="goToSearch()"><a>Search</a></li>
+        <li *ngIf="isUser"(click)="goToDeck()"><a>Deck</a></li>
         <li *ngIf="isUser"(click)="logout()"><a>Logout</a></li>
         <li><a *ngIf="!isUser"(click)="goToLogin()">Log In</a></li>
         <li><a *ngIf="!isUser"(click)="goToRegister()">Register</a></li>
